@@ -1,12 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.2.3.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'java'
 }
-
-group = 'pers.hututu'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
 
 configurations {
     compileOnly {
@@ -14,16 +9,10 @@ configurations {
     }
 }
 
-repositories {
-    maven {
-        url 'https://maven.aliyun.com/nexus/content/groups/public'
-    }
-    mavenCentral()
-}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation group: 'pers.hututu.hahei-server', name: 'hahei-server', version: '0.0.1-SNAPSHOT'
+    compile project(":hahei-server")
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
