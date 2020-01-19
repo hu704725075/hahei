@@ -1,5 +1,8 @@
 allprojects {
-    apply plugin:"java"
+    plugins{
+        id 'java'
+        id 'idea'
+    }
     sourceCompatibility = '1.8'
     repositories {
         maven {
@@ -14,13 +17,11 @@ allprojects {
 }
 
 dependencies{
-    compile project(':hahei-web')
+
 }
-rootProject.name = 'hahei'
+//rootProject.name = 'hahei'
 include 'hahei-web'
 include 'hahei-server'
 
-project(':hahei-web').projectDir = "$rootDir/hahei-web" as File
-project(':hahei-server').projectDir = "$rootDir/hahei-server" as File
 
-
+apply plugin: 'java'

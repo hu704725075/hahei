@@ -1,25 +1,23 @@
 plugins {
     id 'org.springframework.boot' version '2.2.3.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
 }
-
+group 'pers.hututu'
+version '1.0-SNAPSHOT'
 configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
+
 }
 
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compile project(":hahei-server")
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    compile 'pers.hututu:hahei-server.1.0-SNAPSHOT'
+    annotationProcessor 'org.projectlombok:lombok:1.18.2'
+    compileOnly 'org.projectlombok:lombok:1.18.2'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.2'
+    testCompileOnly 'org.projectlombok:lombok:1.18.2'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-}
-
-test {
-    useJUnitPlatform()
 }
